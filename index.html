@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Tesla Wraps Editor — 原型</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="app">
+		<div class="left">
+			<div style="width:100%">
+				<div class="canvas-wrap card">
+					<canvas id="editorCanvas" width="1000" height="600"></canvas>
+				</div>
+				<div style="display:flex;gap:8px;margin-top:8px;justify-content:center;align-items:center">
+					<button id="resetBtn" class="small">Reset</button>
+					<select id="exportSize" title="导出像素" style="padding:6px;border-radius:6px;border:1px solid #dfe7f3;background:#fff">
+						<option value="1024">1024 x 1024 （推荐）</option>
+						<option value="512">512 x 512</option>
+					</select>
+					<button id="exportBtn" class="small primary">导出 PNG</button>
+					<button id="quickExportUsb" class="small">快速导出至U盘</button>
+				</div>
+				<div style="margin-top:6px;text-align:center;color:#4b5563;font-size:13px">选择移动硬盘根目录后会在根目录下创建 <strong>Wraps</strong> 文件夹并保存文件；若未插入U盘，请选择桌面或其他文件夹。</div>
+				</div>
+			</div>
+
+		<div class="right">
+			<div class="card">
+				<label>选择车型</label>
+				<select id="modelSelect" style="width:100%;margin-top:8px;padding:8px;border-radius:6px;border:1px solid #dfe7f3;background:#fbfdff"></select>
+				<img id="vehiclePreview" class="model-preview" src="" alt="vehicle preview" style="margin-top:8px" />
+			</div>
+
+			<div class="card">
+				<label>选择贴膜（点击预览 / 叠加）</label>
+				<div id="thumbs" class="thumbs"></div>
+				<div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+					<input id="uploadInput" type="file" accept="image/*" style="display:none" />
+					<button id="uploadBtn" class="small">上传</button>
+					<span id="uploadName" style="margin-left:8px;color:#444;font-size:13px"></span>
+				</div>
+				<div style="margin-top:8px;display:flex;align-items:center;gap:8px">
+					<label style="font-size:13px;">填充色</label>
+					<input id="fillColor" type="color" value="#ff0000" />
+					<div style="display:flex;gap:6px;margin-left:6px">
+						<button id="addFillBtn" class="small">添加填充</button>
+						<button id="addFillRegionsBtn" class="small">按区域分割填充</button>
+					</div>
+				</div>
+				<div style="margin-top:8px;display:flex;align-items:center;gap:8px">
+					<label style="font-size:13px;">分割阈值</label>
+					<input id="regionThreshold" type="range" min="0" max="255" step="1" value="16" style="flex:1" />
+					<input id="regionThresholdNumber" type="number" min="0" max="255" step="1" value="16" style="width:80px;margin-left:6px" />
+				</div>
+				<div style="margin-top:12px">
+					<label>图层</label>
+					<div id="layers" style="display:flex;flex-direction:column;gap:6px;margin-top:6px;max-height:180px;overflow:auto"></div>
+				</div>
+			</div>
+
+			<div class="card controls">
+				<label>调整</label>
+				<div class="row"><label style="width:70px">缩放</label><input id="scale" type="range" min="0.01" max="5" step="0.01" value="1" style="flex:1"/><input id="scaleNumber" type="number" step="0.01" value="1" style="width:80px;margin-left:6px"/></div>
+				<div class="row"><label style="width:70px">旋转</label><input id="rotate" type="range" min="-360" max="360" step="0.1" value="0" style="flex:1"/><input id="rotateNumber" type="number" step="0.1" value="0" style="width:80px;margin-left:6px"/></div>
+				<div class="row"><label style="width:70px">不透明度</label><input id="opacity" type="range" min="0" max="1" step="0.01" value="1" style="flex:1"/><input id="opacityNumber" type="number" step="0.01" min="0" max="1" value="1" style="width:80px;margin-left:6px"/></div>
+				<div class="row"><label style="width:70px">X</label><input id="posX" type="number" step="1" value="0" style="flex:1"/><label style="width:40px;text-align:center">Y</label><input id="posY" type="number" step="1" value="0" style="width:80px;margin-left:6px"/></div>
+				<div class="row" style="justify-content:space-between"><div><button id="bringFront" class="small">置顶</button><button id="removeWrap" class="small">移除贴膜</button></div><div><button id="fitBtn2" class="small">Fit</button></div></div>
+				<div style="height:8px"></div>
+				<div class="row"><label style="width:70px">图层颜色</label><input id="layerColor" type="color" value="#ff0000" style="flex:1" disabled />
+					<div style="display:flex;gap:6px;margin-left:6px">
+						<!-- layerColor is only enabled when a recolorable layer is selected -->
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<script src="app.js"></script>
+</body>
+</html>

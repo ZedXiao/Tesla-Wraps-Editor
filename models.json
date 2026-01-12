@@ -1,0 +1,38 @@
+{
+  "cybertruck": {
+    "template": "CarModel/cybertruck/template.png",
+    "vehicle_image": "CarModel/cybertruck/vehicle_image.png"
+  },
+  "model3": {
+    "template": "CarModel/model3/template.png",
+    "vehicle_image": "CarModel/model3/vehicle_image.png"
+  },
+  "model3-2024-base": {
+    "template": "CarModel/model3-2024-base/template.png",
+    "vehicle_image": "CarModel/model3-2024-base/vehicle_image.png"
+  },
+  "model3-2024-performance": {
+    "template": "CarModel/model3-2024-performance/template.png",
+    "vehicle_image": "CarModel/model3-2024-performance/vehicle_image.png"
+  },
+  "modely": {
+    "template": "CarModel/modely/template.png",
+    "vehicle_image": "CarModel/modely/vehicle_image.png"
+  },
+  "modely-2025-base": {
+    "template": "CarModel/modely-2025-base/template.png",
+    "vehicle_image": "CarModel/modely-2025-base/vehicle_image.png"
+  },
+  "modely-2025-performance": {
+    "template": "CarModel/modely-2025-performance/template.png",
+    "vehicle_image": "CarModel/modely-2025-performance/vehicle_image.png"
+  },
+  "modely-2025-premium": {
+    "template": "CarModel/modely-2025-premium/template.png",
+    "vehicle_image": "CarModel/modely-2025-premium/vehicle_image.png"
+  },
+  "modely-l": {
+    "template": "CarModel/modely-l/template.png",
+    "vehicle_image": "CarModel/modely-l/vehicle_image.png"
+  }
+}
